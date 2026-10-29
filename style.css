@@ -1,0 +1,98 @@
+/* style.css - tampilan sederhana & responsif untuk Katalog Buku */
+:root {
+    --bg: #f4f6fa;
+    --surface: #ffffff;
+    --text: #1f2933;
+    --muted: #6b7785;
+    --primary: #2457c5;
+    --primary-dark: #1b449a;
+    --danger: #c0392b;
+    --danger-dark: #992d22;
+    --border: #d9dee7;
+    --success-bg: #e6f6ec;
+    --success-text: #1e6b3a;
+    --error-bg: #fdeceb;
+    --error-text: #9b2c22;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+main.container { flex: 1; padding-top: 24px; padding-bottom: 32px; }
+
+/* ---------- Top bar ---------- */
+.topbar { background: var(--primary); color: #fff; }
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 12px; padding-bottom: 12px; flex-wrap: wrap; }
+.brand { color: #fff; font-weight: 700; font-size: 1.2rem; text-decoration: none; }
+.nav { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; font-size: .92rem; }
+.lang a { color: #cfdcff; text-decoration: none; padding: 2px 4px; }
+.lang a.active { color: #fff; font-weight: 700; text-decoration: underline; }
+
+/* ---------- Card ---------- */
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,.05); }
+.card-narrow { max-width: 420px; margin: 40px auto; }
+.card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+h1 { margin: 0 0 4px; font-size: 1.5rem; }
+.muted { color: var(--muted); margin: 0; }
+.empty { text-align: center; color: var(--muted); padding: 32px 0; }
+
+/* ---------- Buttons ---------- */
+.btn { display: inline-block; padding: 9px 16px; border-radius: 6px; border: 1px solid transparent; font-size: .95rem; font-family: inherit; text-decoration: none; cursor: pointer; line-height: 1.2; }
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-dark); }
+.btn-outline { background: transparent; color: var(--primary); border-color: var(--primary); }
+.btn-outline:hover { background: #eef3fd; }
+.topbar .btn-outline { color: #fff; border-color: #fff; }
+.topbar .btn-outline:hover { background: rgba(255,255,255,.15); }
+.btn-danger { background: var(--danger); color: #fff; }
+.btn-danger:hover { background: var(--danger-dark); }
+.btn-small { padding: 5px 10px; font-size: .85rem; }
+.btn-block { display: block; width: 100%; }
+
+/* ---------- Alerts ---------- */
+.alert { padding: 12px 16px; border-radius: 8px; margin-bottom: 16px; }
+.alert ul { margin: 6px 0 0; padding-left: 20px; }
+.alert-success { background: var(--success-bg); color: var(--success-text); border: 1px solid #b7e2c6; }
+.alert-error { background: var(--error-bg); color: var(--error-text); border: 1px solid #f3c0bb; }
+
+/* ---------- Table ---------- */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: .93rem; }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); vertical-align: middle; }
+thead th { background: #eef2f9; white-space: nowrap; }
+tbody tr:hover { background: #f8faff; }
+.num { text-align: right; white-space: nowrap; }
+.actions { white-space: nowrap; }
+form.inline { display: inline; }
+
+/* ---------- Forms ---------- */
+.form-group { margin-bottom: 16px; flex: 1; }
+.form-row { display: flex; gap: 16px; }
+label { display: block; font-weight: 600; margin-bottom: 4px; }
+input[type="text"], input[type="password"], select {
+    width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 6px;
+    font-size: 1rem; font-family: inherit; background: #fff;
+}
+input:focus, select:focus { outline: 2px solid #9db8ee; border-color: var(--primary); }
+small { display: block; color: var(--muted); margin-top: 3px; font-size: .8rem; }
+.has-error input, .has-error select { border-color: var(--danger); background: #fffafa; }
+.form-actions { display: flex; gap: 10px; margin-top: 8px; }
+
+/* ---------- Footer ---------- */
+.footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 18px 0; border-top: 1px solid var(--border); background: var(--surface); }
+
+@media (max-width: 640px) {
+    .form-row { flex-direction: column; gap: 0; }
+    .card { padding: 16px; }
+}
